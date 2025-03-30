@@ -1,3 +1,5 @@
+[![CodeQL Advanced](https://github.com/OR-Homelab/shopping-list/actions/workflows/codeql.yml/badge.svg)](https://github.com/OR-Homelab/shopping-list/actions/workflows/codeql.yml)
+
 # Shopping-list
 
 A collaborative web app for grocery and shopping lists. Add and check off items with live updates, and cross-device sync. Perfect for families, roommates, and teams!
