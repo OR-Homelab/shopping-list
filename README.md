@@ -94,6 +94,8 @@ After these steps are completed, the registered users, will be able to register 
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
+## Third-Party Licenses
+
 ## Last Updated
 
 This README was last updated on 2025-03-30.
