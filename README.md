@@ -90,22 +90,7 @@ After these steps are completed, the registered users, will be able to register 
 
 ## License
 
-This project is licensed under the Apache-2.0 License - see the [LICENSE](LICENSE) file for details.
-
-## Third-Party Licenses
-
-- body-parser (MIT License)
-- connect-ensure-login (MIT License)
-- dotenv (BSD-2-Clause License)
-- ejs (Apache-2.0 License)
-- express (MIT License)
-- passport-local-mongoose (MIT License)
-- passport (MIT License)
-- mongoose (MIT License)
-- express-slow-down (MIT License)
-- express-session (MIT License)
-- express-rate-limit (MIT License)
-- path (MIT License)
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
 ## Last Updated
 
