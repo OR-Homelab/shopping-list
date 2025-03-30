@@ -1,7 +1,7 @@
-"use client";
-
 import { FaCartShopping } from "react-icons/fa6";
 import Link from "next/link";
+
+import { LoginButton } from "@/components/loginButton";
 
 export default function Layout({
   children,
@@ -18,6 +18,7 @@ export default function Layout({
           <h1 className="ml-5 text-2xl">Shopping List</h1>
         </div>
         <nav className="ml-5 m-auto"></nav>
+        <LoginButton />
       </header>
       <main className={`pt-16 transition-all duration-300`}>{children}</main>
     </div>
