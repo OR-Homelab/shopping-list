@@ -5,8 +5,7 @@ import { FaCartShopping } from "react-icons/fa6";
 import Link from "next/link";
 
 import { Sidebar } from "@/components/sidebar";
-// TODO: Make the LoginButton component usable in client components.
-/* import { LoginButton } from "@/components/loginButton"; */
+import { LoginButton } from "@/components/login/loginButton";
 
 export default function Layout({
   children,
@@ -27,7 +26,7 @@ export default function Layout({
         <nav className="ml-5 m-auto">
           <button onClick={() => setIsExpanded(!isExpanded)}>Sidebar</button>
         </nav>
-        <div>{/* <LoginButton /> */}</div>
+        <LoginButton />
       </header>
       <Sidebar isExpanded={isExpanded} />
       <main

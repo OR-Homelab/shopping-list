@@ -1,9 +1,22 @@
-import { signIn, signOut, auth } from "@/auth/auth";
+"use client";
+
+import { login, logout, getSession } from "@/components/login/login";
+import { Session } from "next-auth";
+import { useEffect, useState } from "react";
 import { FaGithub } from "react-icons/fa";
 import { GrLogout } from "react-icons/gr";
 
-export async function LoginButton() {
-  const session = await auth();
+export function LoginButton() {
+  const [session, setSession] = useState<Session | null>(null);
+
+  useEffect(() => {
+    const handleSession = async () => {
+      const authOutput = await getSession();
+      setSession(authOutput);
+    };
+
+    handleSession();
+  }, []);
 
   return (
     <div className="flex flex-row w-50">
@@ -16,8 +29,7 @@ export async function LoginButton() {
         {session?.user ? (
           <form
             action={async () => {
-              "use server";
-              await signOut();
+              await login();
             }}
           >
             <button type="submit">Logout</button>
@@ -25,8 +37,7 @@ export async function LoginButton() {
         ) : (
           <form
             action={async () => {
-              "use server";
-              await signIn("github", { redirectTo: "/shopping" });
+              await logout();
             }}
           >
             <button type="submit">Login with Github</button>
