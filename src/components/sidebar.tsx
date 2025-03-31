@@ -8,7 +8,7 @@ interface props {
 export function Sidebar(props: props) {
   return (
     <div
-      className={`fixed h-full top-16 left-0 bg-foreground2 z-10 transition-all duration-300 ${
+      className={`fixed h-full top-16 left-0 bg-sidebar z-10 transition-all duration-300 ${
         props.isExpanded ? "w-64" : "w-0"
       }`}
     >

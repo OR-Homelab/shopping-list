@@ -29,17 +29,17 @@ export default function Layout({
           )}
         </button>
         <div className="m-auto ml-5 mr-0 flex flex-row">
-          <Link href="/shopping">
+          <Link href="/shopping" className="flex flex-row">
             <FaCartShopping className="m-auto size-8" />
+            <h1 className="ml-5 text-2xl select-none">Shopping List</h1>
           </Link>
-          <h1 className="ml-5 text-2xl">Shopping List</h1>
         </div>
         <nav className="ml-5 m-auto flex flex-row"></nav>
         <LoginButton />
       </header>
       <Sidebar isExpanded={isExpanded} />
       <main
-        className={`transition-all duration-250 ${
+        className={`transition-all duration-250 h-[calc(100vh-var(--spacing)*16)] text-dark-text ${
           isExpanded ? "ml-64" : "ml-0"
         }`}
       >
