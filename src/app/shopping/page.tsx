@@ -5,7 +5,7 @@ import { DonutChart } from "@/components/tremor/donutChart";
 import { Tracker } from "@/components/tremor/tracker";
 
 const trackerData = [
-  { color: "bg-emerald-600", tooltip: "Under Budget" },
+  { color: "bg-emerald-600", tooltip: "Under Budget 03/2025" },
   { color: "bg-emerald-600", tooltip: "Under Budget" },
   { color: "bg-emerald-600", tooltip: "Under Budget" },
   { color: "bg-red-600", tooltip: "Over Budget" },
@@ -69,7 +69,7 @@ const donutData = [
     amount: 2103,
   },
   {
-    name: "JunctionBox",
+    name: "Rema1000",
     amount: 2050,
   },
   {
@@ -113,16 +113,23 @@ export default function Page() {
       {/* Money category donut */}
       <div className="flex items-center justify-center h-full">
         <DonutChart
-          className="mr-10 bg-backdrop"
+          className="mr-10"
           data={donutData}
           category="name"
           value="amount"
           showLabel={true}
           colors={["blue", "violet", "cyan", "emerald"]}
-          valueFormatter={() => ""}
+          valueFormatter={(number: number) =>
+            `${Intl.NumberFormat("da-DK", {
+              style: "currency",
+              currency: "DKK",
+            })
+              .format(number)
+              .toString()}`
+          }
         />
         <div>
-          <p className="text-2xl font-medium text-dark-text">$12000</p>
+          <p className="text-2xl font-medium text-dark-text">12.343,00 kr.</p>
           <p className="text-l text-dark-text">Money spent this month</p>
         </div>
       </div>
