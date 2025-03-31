@@ -1,7 +1,7 @@
 import { FaCartShopping } from "react-icons/fa6";
 import Link from "next/link";
 
-import { LoginButton } from "@/components/loginButton";
+import { LoginButton } from "@/components/login/loginButton";
 
 export default function Layout({
   children,
