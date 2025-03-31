@@ -1,6 +1,6 @@
 "use client";
 
-import Link from "next/link";
+import { NavButton } from "@/components/navButton";
 interface props {
   isExpanded: boolean;
 }
@@ -8,14 +8,15 @@ interface props {
 export function Sidebar(props: props) {
   return (
     <div
-      className={`fixed h-full top-16 left-0 bg-foreground2 z-10 transition-all duration-250 ${
+      className={`fixed h-full top-16 left-0 bg-sidebar z-10 transition-all duration-300 ${
         props.isExpanded ? "w-64" : "w-0"
       }`}
     >
-      <nav className="overflow-hidden flex flex-col">
-        <Link href="/">Home</Link>
-        <Link href="/shopping">Shopping</Link>
-        <Link href="/settings">Settings</Link>
+      <nav className="overflow-hidden flex flex-col gap-5">
+        <NavButton text="Home" href="/shopping" className="mt-5" />
+        <NavButton text="List" href="/shopping/list" />
+        <NavButton text="Add Item" href="/shopping/add-item" />
+        {/* <Link href="">Receipts</Link> */}
       </nav>
     </div>
   );

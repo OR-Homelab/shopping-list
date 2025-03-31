@@ -20,19 +20,20 @@ export function LoginButton() {
 
   return (
     <div className="flex flex-row w-50">
-      {session?.user ? (
-        <GrLogout className="m-auto mr-2 size-6" />
-      ) : (
-        <FaGithub className="m-auto mr-2 size-6" />
-      )}
-      <div className="m-auto ml-0">
+      <div className="m-auto">
         {session?.user ? (
           <form
             action={async () => {
               await login();
             }}
           >
-            <button type="submit">Logout</button>
+            <button
+              type="submit"
+              className="flex flex-row rounded-2xl bg-button hover:bg-button-hover p-3 pl-5 pr-5"
+            >
+              <GrLogout className="m-auto mr-2 size-6" />
+              Logout
+            </button>
           </form>
         ) : (
           <form
@@ -40,7 +41,13 @@ export function LoginButton() {
               await logout();
             }}
           >
-            <button type="submit">Login with Github</button>
+            <button
+              type="submit"
+              className="flex flex-row rounded-2xl bg-button hover:bg-button-hover p-3 pl-5 pr-5"
+            >
+              <FaGithub className="m-auto mr-2 size-6" />
+              Login with GitHub
+            </button>
           </form>
         )}
       </div>
