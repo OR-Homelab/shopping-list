@@ -19,3 +19,8 @@ body {
   --color-foreground: #eeeeee;
   --color-foreground2: #00adb5;
 }
+
+@theme {
+  --color-button: #2c364a;
+  --color-button-hover: #222a3b;
+}

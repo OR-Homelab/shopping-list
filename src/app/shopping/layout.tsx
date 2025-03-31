@@ -18,7 +18,7 @@ export default function Layout({
     <div className="min-h-screen bg-backdrop">
       <header className="h-16 w-screen z-50 bg-navbar flex flex-row">
         <div className="m-auto ml-5 mr-0 flex flex-row">
-          <Link href="/">
+          <Link href="/shopping">
             <FaCartShopping className="m-auto size-8" />
           </Link>
           <h1 className="ml-5 text-2xl">Shopping List</h1>
