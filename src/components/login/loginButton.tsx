@@ -1,6 +1,6 @@
 "use client";
 
-import { login, logout, getSession } from "@/components/login/login";
+import { login, logout, getSession } from "@/lib/login";
 import { Session } from "next-auth";
 import { useEffect, useState } from "react";
 import { FaGithub } from "react-icons/fa";
