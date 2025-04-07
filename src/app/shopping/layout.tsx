@@ -17,7 +17,7 @@ export default function Layout({
 
   return (
     <div className="min-h-screen bg-backdrop">
-      <header className="h-16 w-screen z-50 bg-navbar flex flex-row">
+      <header className="h-16 w-screen z-50 bg-navbar flex flex-row fixed top-0">
         <button
           onClick={() => setIsExpanded(!isExpanded)}
           className="ml-5 bg-button hover:bg-button-hover hover:cursor-pointer h-10 w-10 mt-auto mb-auto rounded-md"
@@ -39,7 +39,7 @@ export default function Layout({
       </header>
       <Sidebar isExpanded={isExpanded} />
       <main
-        className={`transition-all duration-250 h-[calc(100vh-var(--spacing)*16)] text-dark-text ${
+        className={`transition-all duration-250 h-[calc(100vh-var(--spacing)*16)] pt-16 text-dark-text ${
           isExpanded ? "ml-64" : "ml-0"
         }`}
       >
