@@ -11,7 +11,7 @@ export default function BoxedList(props: BoxedListProps) {
       onClick={() => {
         if (props.onClick) props.onClick();
       }}
-      className="w-50 h-50 bg-button hover:bg-button-hover m-auto text-text flex"
+      className="w-50 h-50 bg-button hover:bg-button-hover hover:cursor-pointer select-none m-auto text-text flex"
     >
       <h1 className="m-auto text-xl whitespace-nowrap overflow-hidden overflow-ellipsis p-2">
         {props.title}
