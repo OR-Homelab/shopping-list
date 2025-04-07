@@ -24,7 +24,7 @@ export function LoginButton() {
         {session?.user ? (
           <form
             action={async () => {
-              await login();
+              await logout();
             }}
           >
             <button
@@ -38,7 +38,7 @@ export function LoginButton() {
         ) : (
           <form
             action={async () => {
-              await logout();
+              await login(session);
             }}
           >
             <button

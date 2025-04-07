@@ -7,22 +7,46 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
+model Access {
+  id              Int  @id @default(autoincrement())
+  access_for      Int
+  access_to       Int
+  User_access_for User @relation("User_access_for", fields: [access_for], references: [id], onDelete: NoAction, onUpdate: NoAction)
+  User_access_to  User @relation("User_access_to", fields: [access_to], references: [id], onDelete: NoAction, onUpdate: NoAction)
+}
+
+model ShoppingList {
+  id         Int     @id @default(autoincrement())
+  item_name  String  @db.Char(255)
+  item_price Int     @default(0)
+  store      Int?
+  is_bought  Boolean @default(false)
+  user_owner Int
+  Store      Store?  @relation(fields: [store], references: [id], onDelete: NoAction, onUpdate: NoAction)
+  User       User    @relation(fields: [user_owner], references: [id], onDelete: NoAction, onUpdate: NoAction)
+}
+
+model Store {
+  id           Int            @id @default(autoincrement())
+  name         String?        @db.Char(255)
+  ShoppingList ShoppingList[]
+}
+
+model Budget {
+  id       Int      @id @default(autoincrement())
+  month    DateTime @default(now())
+  spending Int      @default(0)
+  user_id  Int
+  User     User     @relation(fields: [user_id], references: [id], onDelete: NoAction, onUpdate: NoAction)
+}
+
 model User {
-  id Int @id @default(autoincrement())
-  name String?
-  user_id Int @unique
-  isAdmin Boolean @default(false)
-}
-
-model ShoppingItem {
-  id Int @id @default(autoincrement())
-  title String
-  price Int
-  updated DateTime @updatedAt
-}
-
-model Spending {
-  id Int @id @default(autoincrement())
-  price Int
-  created DateTime @default(now())
+  id              Int            @id @default(autoincrement())
+  name            String?        @db.Char(255)
+  email           String?        @db.Char(255)
+  user_id         Int
+  User_access_for Access[]       @relation("User_access_for")
+  User_access_to  Access[]       @relation("User_access_to")
+  ShoppingList    ShoppingList[]
+  Budget          Budget[]
 }

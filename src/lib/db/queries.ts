@@ -11,24 +11,10 @@ export async function addUser(user: User) {
       },
     });
 
-    if (count == 0) {
-      await prisma.user.create({ data: { user_id: uid, name: user.name } });
+    if (count === 0) {
+      await prisma.user.create({
+        data: { user_id: uid, name: user.name, email: user?.email },
+      });
     }
   }
-
-  return count;
-}
-
-export async function checkIfAdmin(user: User) {
-  let count = 0;
-  if (user.image) {
-    const uid = parseInt(user.image.split("/")[4].split("?")[0]);
-    count = await prisma.user.count({
-      where: {
-        user_id: uid,
-      },
-    });
-  }
-
-  return !!count;
 }
