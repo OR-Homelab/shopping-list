@@ -1,10 +1,10 @@
-export function Loading() {
+export default function Loading() {
   return (
     <div className="w-full h-full flex flex-col">
       <div className="m-auto">
         <svg
           aria-hidden="true"
-          className="w-12 h-12 animate-spin text-dark-text fill-button m-auto"
+          className="w-12 h-12 animate-spin text-backdrop fill-button m-auto"
           viewBox="0 0 100 101"
           fill="none"
           xmlns="http://www.w3.org/2000/svg"
@@ -18,7 +18,7 @@ export function Loading() {
             fill="currentFill"
           />
         </svg>
-        <p className="m-auto mt-2 font-bold">Loading</p>
+        <p className="m-auto mt-2 font-bold text-dark-text">Loading</p>
       </div>
     </div>
   );
