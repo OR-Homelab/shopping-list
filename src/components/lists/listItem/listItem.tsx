@@ -8,7 +8,7 @@ interface ListItemProps {
 
 export default function ListItem(props: ListItemProps) {
   return (
-    <div className="flex w-full bg-button justify-center">
+    <div className="flex w-full justify-center space-x-5">
       <p>{props.item_name}</p>
       <p>{props.item_amount}</p>
       <p>{props.item_price}</p>

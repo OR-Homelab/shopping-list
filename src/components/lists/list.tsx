@@ -1,45 +1,33 @@
 "use client";
 
-import ListItem from "@/components/lists/listItem";
+import ListItem from "@/components/lists/listItem/listItem";
+import AddItem from "@/components/lists/listItem/addItem";
+interface ListProps {
+  data: {
+    id: number;
+    item_name: string;
+    item_amount: number;
+    item_price: number;
+    is_bought: boolean;
+  }[];
+  total_price: number;
+  addItem: () => void;
+  removeItem: () => void;
+}
 
-const sampleData = [
-  {
-    id: 1,
-    item_name: "Test",
-    item_amount: 2,
-    item_price: 100,
-    is_bought: false,
-  },
-  {
-    id: 2,
-    item_name: "Test",
-    item_amount: 5,
-    item_price: 50,
-    is_bought: false,
-  },
-  {
-    id: 3,
-    item_name: "Test",
-    item_amount: 52,
-    item_price: 90,
-    is_bought: false,
-  },
-  {
-    id: 4,
-    item_name: "Test",
-    item_amount: 3,
-    item_price: 120,
-    is_bought: false,
-  },
-];
-
-export default function List() {
+export default function List(props: ListProps) {
   return (
-    <div className="flex h-full">
-      <div className="flex flex-col gap-5 mx-auto w-[80%]">
-        {sampleData.map((item) => (
-          <ListItem key={item.id} {...item} />
-        ))}
+    <div className="flex h-full items-center justify-center">
+      <div className="w-full shadow border mt-0 max-w-md p-0 bg-white border-dark-text flex flex-col">
+        <div className="space-y-10 p-8">
+          <p className="text-2xl text-dark-text text-center">Indkøbsliste</p>
+          <p className="text-center">Name Price Amount Bought</p>
+          {props.data.map((item) => (
+            <ListItem key={item.id} {...item} />
+          ))}
+        </div>
+        <p className="text-center">Total {props.total_price} dkk</p>
+        <AddItem addItem={props.addItem} />
       </div>
     </div>
   );
