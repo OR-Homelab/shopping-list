@@ -19,6 +19,60 @@ export async function addUser(user: User) {
   }
 }
 
+export async function checkIfUserHasAccessToList(
+  user: User,
+  shoppingListId: number
+) {
+  let count = 0;
+
+  if (user.image) {
+    const uid = parseInt(user.image.split("/")[4].split("?")[0]);
+
+    count = await prisma.shoppingList.count({
+      where: {
+        id: shoppingListId,
+        OR: [
+          {
+            User: {
+              user_id: uid,
+            },
+          },
+          {
+            Access: {
+              some: {
+                User: {
+                  user_id: uid,
+                },
+              },
+            },
+          },
+        ],
+      },
+    });
+  }
+
+  return !!count;
+}
+
+export async function checkIfUserOwnsList(user: User, shoppingListId: number) {
+  let count = 0;
+
+  if (user.image) {
+    const uid = parseInt(user.image.split("/")[4].split("?")[0]);
+
+    count = await prisma.shoppingList.count({
+      where: {
+        id: shoppingListId,
+        User: {
+          user_id: uid,
+        },
+      },
+    });
+  }
+
+  return !!count;
+}
+
 export async function getLists(user: User) {
   if (user.image) {
     const uid = parseInt(user.image.split("/")[4].split("?")[0]);
