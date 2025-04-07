@@ -1,6 +1,6 @@
 "use client";
 
-import { login, logout, getSession } from "@/components/login/login";
+import { login, logout, getSession } from "@/lib/login";
 import { Session } from "next-auth";
 import { useEffect, useState } from "react";
 import { FaGithub } from "react-icons/fa";
@@ -24,7 +24,7 @@ export function LoginButton() {
         {session?.user ? (
           <form
             action={async () => {
-              await login();
+              await logout();
             }}
           >
             <button
@@ -38,7 +38,7 @@ export function LoginButton() {
         ) : (
           <form
             action={async () => {
-              await logout();
+              await login(session);
             }}
           >
             <button

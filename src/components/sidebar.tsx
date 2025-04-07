@@ -14,8 +14,8 @@ export function Sidebar(props: props) {
     >
       <nav className="overflow-hidden flex flex-col gap-5">
         <NavButton text="Home" href="/shopping" className="mt-5" />
-        <NavButton text="List" href="/shopping/list" />
-        <NavButton text="Add Item" href="/shopping/add-item" />
+        <NavButton text="Lists" href="/shopping/lists" />
+        {/* <NavButton text="Add Item" href="/shopping/add-item" /> */}
         {/* <Link href="">Receipts</Link> */}
       </nav>
     </div>
