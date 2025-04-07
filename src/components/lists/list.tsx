@@ -1,6 +1,6 @@
 "use client";
 
-import { useParams } from "next/navigation";
+import ListItem from "@/components/lists/listItem";
 
 const sampleData = [
   {
@@ -34,6 +34,13 @@ const sampleData = [
 ];
 
 export default function List() {
-  const { listid } = useParams();
-  return <div className="p-0 m-0">Det her er List med ID: {listid}</div>;
+  return (
+    <div className="flex h-full">
+      <div className="flex flex-col gap-5 mx-auto w-[80%]">
+        {sampleData.map((item) => (
+          <ListItem key={item.id} {...item} />
+        ))}
+      </div>
+    </div>
+  );
 }
